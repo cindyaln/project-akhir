@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import login from "./modules/login";
 import auth from "./modules/auth";
 
+
 const store = createStore ({
     state: {
         isLoading: false,
@@ -10,6 +11,7 @@ const store = createStore ({
 
         login,
         auth,
+       
      
     },
 });

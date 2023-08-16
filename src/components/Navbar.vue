@@ -3,7 +3,7 @@
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <router-link to="/" class="flex items-center">
               <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" />
-              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">C̷̗̆͒́́̊̔͐͛͠I̶̢̭̻̭̟̝̩͉͕̐̿̐͋̎͒̕͝N̴̹̼̤̦̅D̷͇͉̹̞̺̉͂̚ͅY̵̫͚̜͇̌̔͘ͅ</span>
+              <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">꧁༺૮เɳ∂ყ༻꧂</span>
           </router-link>
           <button data-collapse-toggle="navbar-default" type="button"
               class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -32,7 +32,23 @@
                   <li>
                       <router-link to="/"
                           class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                          aria-current="page">~♥~♥~♥~♥~♥~♥~
+                          aria-current="page">~♥~♥~♥     ℍ𝕆𝕄𝔼
+                      </router-link>
+                  </li>
+
+                  <li>
+                      <router-link to="/product"
+                          class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                          aria-current="page">ℙℝ𝕆𝕌ℂ𝕋
+                      </router-link>
+                  </li>
+
+                  
+
+                  <li>
+                      <router-link to="/contact"
+                          class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                          aria-current="page">ℂ𝕆ℕ𝕋𝔸ℂ𝕋     ~♥~♥~♥~
                       </router-link>
                   </li>
                   
