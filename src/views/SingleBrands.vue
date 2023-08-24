@@ -8,20 +8,20 @@
         <div class="lg:flex lg:items-start">
           <div class="lg:order-2 lg:ml-5">
             <div class="max-w-xl overflow-hidden rounded-lg">
-              <img class="h-full w-full max-w-full object-cover" src="../images/campuran2.jpg" alt="" />
+              <img class="h-full w-full max-w-full object-cover" src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg" alt="" />
             </div>
           </div>
 
           <div class="mt-2 w-full lg:order-1 lg:w-32 lg:flex-shrink-0">
             <div class="flex flex-row items-start lg:flex-col">
               <button type="button" class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
-                <img class="h-full w-full object-cover" src="../images/campuran3.jpg" alt="" />
+                <img class="h-full w-full object-cover" src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg" alt="" />
               </button>
               <button type="button" class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                <img class="h-full w-full object-cover" src="../images/cincin.jpg" alt="" />
+                <img class="h-full w-full object-cover" src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg" alt="" />
               </button>
               <button type="button" class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                <img class="h-full w-full object-cover" src="../images/kalung.jpg" alt="" />
+                <img class="h-full w-full object-cover" src="https://ecommerce.olipiskandar.com/public/uploads/all/UpUx213sXC5XBW07vbXn1vkWMWxTu95CDDbMzwkF.jpg" alt="" />
               </button>
             </div>
           </div>
@@ -199,18 +199,18 @@
 
   export default {
     computed: {
-        ...mapGetters("product", ["getProductById"]),
-        product() {
-            return this.getProductById(Number(this.$route.params.id));
+        ...mapGetters("brands", ["getbrandsById"]),
+        brands() {
+            return this.getbrandsById(Number(this.$route.params.id));
         },
     },
     methods: {
-        ...mapActions("product", ["fetchSingleProduct"]),
+        ...mapActions("brands", ["fetchSingleBrands"]),
     },
     mounted() {
-        const productId = this.$route.params.id;
-        console.log("Fetching single product with ID:", productId);
-        this.fetchSingleProduct(productId);
+        const brandsId = this.$route.params.id;
+        console.log("Fetching single brands with ID:", brandsId);
+        this.fetchSingleBrands(brandsId);
     },
   
   };

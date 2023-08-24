@@ -1,66 +1,122 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 import Login from "../views/Login.vue";
-import Product from "../views/Product.vue";
+
 import store from "../store";
 import Home from "../views/Home.vue";
 import Chekeout from "../views/Chekeout.vue";
-import SingleProduct from "../views/SingleProduct.vue";
+import SingleProduk from "../views/SingleProduk.vue";
 import Cart from "../views/Cart.vue";
 import Contact from "../views/Contact.vue";
+import Brands from "../views/Brands.vue";
+import Categories from "../views/Categories.vue";
+import SingleBrands from "../views/SingleBrands.vue";
+import Register from "../views/Register.vue";
+import Profile from "../views/Profile.vue";
+import Profile2 from "../views/Profile2.vue";
+import Produk from "../views/Produk.vue";
 
 
 
 const routes = [
 
     {
-        path: "/login",
-        name: "Login",
-        component: Login,
-        meta: { requiresGuest: true },
-    },
-
-    {
         path: "/",
         name: "Home",
         component: Home,
-        meta: { requiresLogin: true },
-    },
-
-    {
-        path: "/product",
-        name: "Product",
-        component: Product,
-        meta: { requiresLogin: true },
-    },
-
-    {
-        path: "/product/:id",
-        name: "SingleProduct",
-        component: SingleProduct,
-        meta: { requiresLogin: true },
-    },
-
-    {
-        path: "/cart",
-        name: "Cart",
-        component: Cart,
-        meta: { requiresLogin: true },
+       
     },
 
     {
         path: "/chekout",
         name: "Chekout",
         component: Chekeout,
-        meta: { requiresLogin: true },
+       
     },
+
+    {
+        path: "/login",
+        name: "Login",
+        component: Login,
+        
+    },
+
+    {
+        path: "/register",
+        name: "Register",
+        component: Register,
+        
+    },
+
+    
+
+    
+    {
+        path: "/singleproduk",
+        name: "SingleProduk",
+        component: SingleProduk,
+       
+    },
+
+    {
+        path: "/cart",
+        name: "Cart",
+        component: Cart,
+       
+    },
+
+    
 
     {
         path: "/contact",
         name: "Contact",
         component: Contact,
-        meta: { requiresLogin: true },
+       
     },
+
+
+    {
+        path: "/brands",
+        name: "Brands",
+        component: Brands,
+       
+    },
+
+    {
+        path: "/categories",
+        name: "Categories",
+        component: Categories,
+       
+    },
+
+    {
+        path: "/brands/:id",
+        name: "SingleBrands",
+        component: SingleBrands,
+       
+    },
+
+    {
+        path: "/profile",
+        name: "Profile",
+        component: Profile,
+       
+    },
+
+    {
+        path: "/profile2",
+        name: "Profile2",
+        component: Profile2,
+       
+    },
+
+    {
+        path: "/produk",
+        name: "Produk",
+        component: Produk,
+       
+    },
+
 
     
   

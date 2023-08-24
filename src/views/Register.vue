@@ -36,7 +36,7 @@
                         <a href="#"
                             class="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500">
                             <span
-                                class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">˜”*°•.˜”*°• LOGIN •°*”˜.•°*”˜</span>
+                                class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">˜”*°•.˜”*°• REGISTER •°*”˜.•°*”˜</span>
                         </a>
                     </div>
                     <!-- /Logo -->
@@ -44,6 +44,14 @@
                     <p class="mb-6 text-gray-500">𝔭𝔩𝔢𝔞𝔰𝔢 𝔰𝔦𝔤𝔫-𝔦𝔫 𝔱𝔬 𝔞𝔠𝔠𝔢𝔰𝔰 𝔶𝔬𝔲𝔯 𝔞𝔠𝔠𝔬𝔲𝔫𝔱</p>
 
                     <form id="" class="mb-4" @submit.prevent="performLogin">
+
+                        <div class="mb-4">
+                            <label for="name" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">𝕌𝕊𝔼ℝℕ𝔸𝕄𝔼</label>
+                            <input type="text"
+                                class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                                id="name" v-model="name" placeholder="Enter your name or username" autofocus="" />
+                        </div>
+
                         <div class="mb-4">
                             <label for="email" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">𝔼𝕄𝔸𝕀𝕃 𝕆ℝ 𝕌𝕊𝔼ℝℕ𝔸𝕄𝔼</label>
                             <input type="text"
@@ -65,6 +73,31 @@
                                     v-model="password" placeholder="············" />
                             </div>
                         </div>
+
+                        <div class="mb-4">
+                            <div class="flex justify-between">
+                                <label class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                                    for="confirm_password">CONFIR ℙ𝔸𝕊𝕊𝕎𝕆ℝ𝔻</label>
+                                <a href="auth-forgot-confirm_password-basic.html"
+                                    class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500">
+                                    <small class=" ">𝒇𝒐𝒓𝒈𝒐𝒕 confir 𝑷𝒂𝒔𝒔𝒘𝒐𝒓𝒅?</small>
+                                </a>
+                            </div>
+                            <div class="relative flex w-full flex-wrap items-stretch">
+                                <input type="password" id="confirm_password"
+                                    class="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                                    v-model="password" placeholder="············" />
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="phone" class="mb-2 inline-block text-xs font-medium uppercase text-gray-700">NO_TELEFON</label>
+                            <input type="text"
+                                class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                                id="phone" v-model="phone" placeholder="Enter your number phone " autofocus="" />
+                        </div>
+
+
                         <div class="mb-4">
                             <div class="block">
                                 <input
@@ -81,11 +114,6 @@
                                 type="submit">𝓼𝓲𝓰𝓷 𝓲𝓷</button>
                         </div>
                     </form>
-
-                    <p class="mb-4 text-center">
-                        n̷e̷w̷ ̷t̷o̷ ̷p̷r̷o̷j̷e̷c̷t̷ ̷c̷i̷n̷d̷y̷?̷
-                        <a href="/register" class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"> Create an account </a>
-                    </p>
                 </div>
             </div>
             <!-- /Register -->
@@ -94,35 +122,33 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-
+import { mapActions } from 'vuex';
 export default {
     data() {
         return {
+            name: '',
             email: '',
             password: '',
+            confirm_password: '',
+            phone: '',
         };
-    },
-    computed: {
-        ...mapGetters('auth',['loginError', 'isAuthenticated']),
     },
     methods: {
         ...mapActions('auth', ['login']),
         async performLogin() {
             const credentials = {
+                name: this.name,
                 email: this.email,
                 password: this.password,
+                confirm_password: this.confirm_password,
+                phone: this.phone,
             };
             const success = await this.login(credentials);
-            if (success && this.isAuthenticated) {
+            if (success) {
                 // Redirect to the desired route on successful login
-                this.$router.push('/profile');
+                this.$router.push('/profile2');
             } else {
-                if(this.loginError){
-                    alert(this.loginError)
-                } else{
                 alert("Login Failed");
-                }
             }
         },
     },

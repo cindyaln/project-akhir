@@ -33,8 +33,6 @@
             𝒸𝒽𝒶𝓃𝓂𝒶𝒹𝑒 𝒶𝒸𝒸𝑒𝒸𝑜𝓇𝒾𝑒𝓈</span
           >
         </h1>
-
-
         <div class="mb-6 max-w-xl">
           
           <h2 class="mb-6 max-w-lg text-3xl font-bold leading-snug tracking-tight text-blue-600 sm:text-5xl sm:leading-snug">
@@ -44,10 +42,6 @@
           </h2>
           <p class="text-base text-gray-700">🅲🅰🆁🅰🅱🅴🅻🅻🅰 🅰🅲🅲🅴🆂🆂🅾🆁🅸🅴🆂 🆂🆃🅾🆁🅴 🅿🆁🅾🆅🅸🅳🅴🆂 🅰 🆅🅰🆁🅸🅴🆃🆈 🅾🅵 🆃🅷🅴 🅻🅰🆃🅴🆂🆃 🅰🅽🅳 🅰🅴🆂🆃🅷🅴🆃🅸🅲 🆆🅾🅼🅴🅽'🆂 🅰🅲🅲🅴🆂🆂🅾🆁🅸🅴🆂</p>
         </div>
-
-        
-
-
       </div>
       <div class="relative text-blue-600 lg:ml-32 lg:w-1/2 hidden lg:block">
         <div class="border-b-8 border-b-blue-600 max-w-lg mx-auto mb-10">
@@ -57,12 +51,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 <footer class="bg-gray-50">
   <div class="mx-auto grid max-w-screen-xl gap-y-8 gap-x-12 px-4 py-10 md:grid-cols-2 xl:grid-cols-4 xl:px-10">
     <div class="max-w-sm">
@@ -112,7 +100,5 @@
     </div>
   </div>
 </footer>
-
-
     </div>
 </template>

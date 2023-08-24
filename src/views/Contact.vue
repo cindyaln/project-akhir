@@ -45,6 +45,8 @@
   </div>
 </div>
 <hr>
+
+
 <footer class="bg-gray-50">
   <div class="mx-auto grid max-w-screen-xl gap-y-8 gap-x-12 px-4 py-10 md:grid-cols-2 xl:grid-cols-4 xl:px-10">
     <div class="max-w-sm">
