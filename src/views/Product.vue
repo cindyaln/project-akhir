@@ -1,29 +1,25 @@
 <template>
-    <br>
-    <br>
-    <div class="mt-20 text-center">
-      <span class="font-bold text-4xl"> 𝓐𝓛𝓛 𝓑𝓡𝓐𝓝𝓓 </span>
-      <br>
-      <br>
-      <p class="mb-4"> 𝙛𝙖𝙢𝙤𝙪𝙨 𝙗𝙧𝙖𝙣𝙙 𝙖𝙣𝙙 𝙦𝙪𝙖𝙡𝙞𝙩𝙮 </p>
-    </div>
-    <br>
-    <br>
-    <div class="grid grid-cols-4 gap-3 mt-5">
-    
-    <div v-for="brands in getBrands.data.slice(0,12)" :key="brands.id">
-    <a href="/brands/:id" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" :src="brands.logo" alt="">
-        <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ brands.name }}</h5>
+    <div class="bg-white">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900">All Product</h2>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 pt-2">
+                <div v-for="product in getProducts.slice(0, 12)" :key="product.slug">
+                    <router-link :to="{ name: 'SingleProduct', params: { slug: product.slug } }" class="group">
+                        <div
+                            class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+                            <!-- <img :src="product.image" -->
+                            <img src="https://i.pinimg.com/474x/ac/29/d6/ac29d63ddc4c061096c57c7d3b26906f.jpg"
+                                alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                                class="h-full w-full object-cover object-center group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-4 text-sm text-gray-700">{{ product.name }}</h3>
+                        <p class="mt-1 text-lg font-medium text-gray-900">${{ product.base_price }}</p>
+                    </router-link>
+                    
+                </div>
+            </div>
         </div>
-    </a>
-    </div>
-     </div>
-
-     
-
-    <footer class="bg-gray-50">
+        <footer class="bg-gray-50">
   <div class="mx-auto grid max-w-screen-xl gap-y-8 gap-x-12 px-4 py-10 md:grid-cols-2 xl:grid-cols-4 xl:px-10">
     <div class="max-w-sm">
       <div class="mb-6 flex h-12 items-center space-x-2">
@@ -72,20 +68,28 @@
     </div>
   </div>
 </footer>
+    </div>
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex';
-    
-    export default {
-        computed: {
-            ...mapGetters('brands', ['getBrands']),
-        },
-        methods: {
-            ...mapActions('brands', ['fetchBrands']),
-        },
-        created() {
-            this.fetchBrands();
-        },
-    }
+import { mapGetters, mapActions } from 'vuex';
+
+export default {
+    computed: {
+        ...mapGetters('product', ['getProducts']),
+    },
+    methods: {
+        ...mapActions('product', ['fetchProducts']),
+        // getImage(imageURL) {
+        //     return {
+        //         'src': `${imageURL}`,
+        //         'background-size': 'cover',
+        //         'background-position': 'center',
+        //     };
+        // },
+    },
+    mounted() {
+        this.fetchProducts();
+    },
+}
 </script>

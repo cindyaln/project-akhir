@@ -4,8 +4,7 @@ import Login from "../views/Login.vue";
 
 import store from "../store";
 import Home from "../views/Home.vue";
-import Chekeout from "../views/Chekeout.vue";
-import SingleProduk from "../views/SingleProduk.vue";
+import SingleProduct from "../views/SingleProduct.vue";
 import Cart from "../views/Cart.vue";
 import Contact from "../views/Contact.vue";
 import Brands from "../views/Brands.vue";
@@ -14,7 +13,9 @@ import SingleBrands from "../views/SingleBrands.vue";
 import Register from "../views/Register.vue";
 import Profile from "../views/Profile.vue";
 import Profile2 from "../views/Profile2.vue";
+//import Product from "../views/Product.vue";
 import Produk from "../views/Produk.vue";
+import PageOrder from "../views/PageOrder.vue";
 
 
 
@@ -28,11 +29,11 @@ const routes = [
     },
 
     {
-        path: "/chekout",
-        name: "Chekout",
-        component: Chekeout,
-       
-    },
+        path: "/checkout",
+        name: "Checkout",
+        component: () => import("../views/Checkout.vue"),
+        meta: { requireLogin: true },
+      },
 
     {
         path: "/login",
@@ -52,9 +53,9 @@ const routes = [
 
     
     {
-        path: "/singleproduk",
-        name: "SingleProduk",
-        component: SingleProduk,
+        path: "/singleproduct",
+        name: "SingleProduct",
+        component: SingleProduct,
        
     },
 
@@ -117,7 +118,12 @@ const routes = [
        
     },
 
-
+    {
+        path: "/order/:orderCode",
+        name: "PageOrder",
+        component: PageOrder,
+        props: true,
+      }
     
   
     
@@ -144,5 +150,16 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
+
+function cekToken(to, from, next) {
+    var isAuthenticated = false;
+    if (localStorage.getItem("token")) isAuthenticated = true;
+    else isAuthenticated = false;
+    if (isAuthenticated) {
+      next();
+    } else {
+      next("/login");
+    }
+  }
 
 export default router; 

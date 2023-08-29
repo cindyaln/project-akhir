@@ -6,28 +6,45 @@
               <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">꧁༺૮เɳ∂ყ༻꧂</span>
           </router-link>
 
-          <button data-collapse-toggle="navbar-default" type="button"
-              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-default" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M1 1h15M1 7h15M1 13h15" />
-              </svg>
-          </button>
-          <div v-if="isAuthenticated" class="flex md:order-2">
-              <button @click="logout" type="button"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Logout
-              </button>
-          </div>
-          <div v-else class="flex md:order-2">
-              <router-link to="/login" type="button"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Login
-              </router-link>
-          </div>
 
+
+
+          
+          <div class="flex md:order-2">
+          <div v-if="isAuthenticated">
+            <CartBadgeComponent/>
+            <router-link to="/cart" class="relative inline-flex items-center mr-4 px-5">
+              
+
+             
+            </router-link>
+
+           
+          </div>
+          <div v-if="isAuthenticated">
+            <div >
+              <a @click="logout"
+                class="text-white  cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 -top-9 md:mr-0  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Logout</a>
+            </div>
+
+          </div>
+          <div v-else>
+            <a href="/login"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</a>
+          </div>
+          <button data-collapse-toggle="navbar-sticky" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-sticky" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+
+
+          
           
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
               <ul
@@ -67,6 +84,7 @@
                       </router-link>
                   </li>
                   
+                  
               </ul>
           </div>
       </div>
@@ -74,12 +92,14 @@
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import CartBadgeComponent from './CartBadgeComponent.vue';
 export default {
   computed: {
-      ...mapGetters('auth', ['isAuthenticated']),
-  },
-  methods: {
-      ...mapActions('auth', ['logout']),
-  },
+        ...mapGetters('auth', ['isAuthenticated']),
+    },
+    methods: {
+        ...mapActions('auth', ['logout']),
+    },
+    components: { CartBadgeComponent }
 };
 </script>
